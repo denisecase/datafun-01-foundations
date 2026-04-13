@@ -55,7 +55,7 @@ jobs:
         # WHY: Required so all subsequent steps can access repo files.
 
       - name: A2) Configure GitHub Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
         # WHY: Sets Pages metadata used by upload-pages-artifact and deploy-pages.
         # OBS: Must run before the build step so base URL is available if needed.
 
@@ -117,7 +117,7 @@ jobs:
         # OBS: path must match the output directory verified in D2.
 
       - name: D4) Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
         # WHY: Publishes the uploaded artifact to GitHub Pages.
         # OBS: Requires pages: write and id-token: write permissions (set above).
         # OBS: The deployed URL is shown in the Actions log after this step completes.
