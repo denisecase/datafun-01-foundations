@@ -1,8 +1,24 @@
 # datafun-01-foundations
 
+[![Python 3.14+](https://img.shields.io/badge/python-3.14%2B-blue?logo=python)](#)
+[![MIT](https://img.shields.io/badge/license-see%20LICENSE-yellow.svg)](./LICENSE)
+
 > Professional Python project: creating variables and running code.
 
-## Project Planning
+Data analytics requires a variety of skills.
+This course builds capabilities through working projects.
+
+In the age of generative AI, durable skills are grounded in real work:
+setting up a professional environment,
+reading and running code,
+understanding the logic,
+and pushing work to a shared repository.
+Each project follows the structure of professional Python projects.
+We learn by doing.
+
+## This Project
+
+This project introduces some coding basics and **variables** for storing data when writing instructions.
 
 Think about different kinds of data - real or fictional.
 Then think about a good name to hold that value in code.
@@ -16,6 +32,9 @@ Then think about a good name to hold that value in code.
 Following the example ([`app_case.py`](./src/datafun_01_foundations/app_case.py)),
 decide on a name for each type of variable.
 
+You will run the example module, read the code,
+and make small modifications to understand how to choose good variable names in Python programs.
+
 In this project, you will:
 
 - choose variable names according to Python conventions.
@@ -23,214 +42,137 @@ In this project, you will:
 - **initialize** each variable to a value.
 - use Python **f-strings** (formatted strings) to display information.
 
-Important: <mark>Git add-commit-push **project.log**</mark> (along with other project files).
----
 
-## Three Workflows
+## Working Files
 
-There are three workflows for analytics projects.
+You'll work with just these areas:
 
-- 01: Set Up Machine (Once Per Machine)
-- 02: Set Up Project (Once Per Project)
-- 03: Daily Workflow (Working With Python Project Code)
+- **docs/** - the project narrative and documentation
+- **src/datafun** - where the magic happens
+- **pyproject.toml** - update authorship & links
+- **zensical.toml** - update authorship & links
 
-## 01: Set Up Machine (Once Per Machine)
+## Instructions
 
-Follow the detailed instructions at:
-[**01. Set Up Your Machine**](https://denisecase.github.io/pro-analytics-02/01-set-up-machine/)
+Follow the [step-by-step workflow guide](https://denisecase.github.io/pro-analytics-02/workflow-b-apply-example-project/) to complete:
 
-🛑 All steps must be completed and verified successfully.
+1. Phase 1. **Start & Run**
+2. Phase 2. **Change Authorship**
+3. Phase 3. **Read & Understand**
+4. Phase 4. **Modify**
+5. Phase 5. **Apply**
 
-## 02: Set Up Project (Once Per Project)
+## Challenges
 
-Start with the list below. If you would like more detailed instructions on any step, see the pro guide at:
-[**02. Set Up Your Project**](https://denisecase.github.io/pro-analytics-02/02-set-up-project/)
+Challenges are expected.
+Sometimes instructions may not quite match your operating system.
+When issues occur, share screenshots, error messages, and details about what you tried.
+Working through issues is part of implementing professional projects.
 
-Start here:
+## Success
 
-1. Sign in to GitHub, open this repository in your browser, and click **Copy this template** to get a copy in **YOURACCOUNT**.
-2. Enable GitHub Pages.
-3. Open a **machine terminal** in your `Repos` folder and clone your new repo.
-4. Change directory into the repo, open the project in VS Code, and install recommended extensions.
-5. Set up a project Python environment (managed by `uv`) and align VS Code with it.
-
-Use the instructions above to get it ALL set up correctly.
-Most people open a terminal on their machine (not VS Code), open in their Repos folder and run:
+After completing Phase 1. **Start & Run**, you'll have your own GitHub project,
+running on your machine, and running the example will print out:
 
 ```shell
-git clone https://github.com/YOURACCOUNT/datafun-01-foundations
+========================
+Executed successfully!
+========================
+```
+
+A new file `project.log` will appear in the root project folder.
+
+## Command Reference
+
+The commands below are used in the workflow guide above.
+They are provided here for convenience.
+
+Follow the guide for the **full instructions**.
+
+<details>
+<summary>Show command reference</summary>
+
+### In a machine terminal (open in your `Repos` folder)
+
+After you get a copy of this repo in your own GitHub account,
+open a machine terminal in your `Repos` folder:
+
+```shell
+# Replace username with YOUR GitHub username.
+git clone https://github.com/username/datafun-01-foundations
 
 cd datafun-01-foundations
 code .
 ```
 
-When VS Code opens, accept the Extension Recommendations (click **`Install All`** or similar when asked).
-
-Use VS Code menu option `Terminal` / `New Terminal` to open a **VS Code terminal** in the root project folder.
-Run the following commands, one at a time, hitting ENTER after each:
+### In a VS Code terminal
 
 ```shell
 uv self update
 uv python pin 3.14
 uv sync --extra dev --extra docs --upgrade
-```
 
-If asked: "We noticed a new environment has been created. Do you want to select it for the workspace folder?" Click **"Yes"**.
-
-If successful, you'll see a new `.venv` folder appear in the root project folder.
-
-Optional (recommended): install and run pre-commit checks (repeat the git `add` and `commit` twice if needed):
-
-```shell
 uvx pre-commit install
+
 git add -A
 uvx pre-commit run --all-files
+# repeat if changes were made
 git add -A
 uvx pre-commit run --all-files
-```
 
-🛑 Do not continue until all REQUIRED steps are complete and verified.
+# run the module
+uv run python -m datafun.app_case
 
-## 03: Daily Workflow (Working With Python Project Code)
-
-Follow the detailed instructions at:
-[**03. Daily Workflow**](https://denisecase.github.io/pro-analytics-02/03-daily-workflow/)
-
-Commands are provided below to:
-
-1. Git pull
-2. Run and check the Python files
-3. Build and serve docs
-4. Save progress with Git add-commit-push
-5. Update project files
-
-VS Code should have only this project (datafun-01-foundations) open.
-Use VS Code menu option `Terminal` / `New Terminal` and run the following commands:
-
-```shell
-git pull
-```
-
-In the same VS Code terminal, run any Python source files:
-
-```shell
-uv run python src/datafun_01_foundations/app_case.py
-uv run python src/datafun_01_foundations/app_yourname.py
-```
-
-If a command fails, verify:
-
-- Only this project is open in VS Code.
-- The terminal is open in the project root folder.
-- The `uv sync --extra dev --extra docs --upgrade` command completed successfully.
-
-Hint: if you run `ls` in the terminal, you should see files including `pyproject.toml`, `README.md`, and `uv.lock`.
-
-Run Python checks and tests (as available):
-
-```shell
+# do chores
 uv run ruff format .
 uv run ruff check . --fix
-uv run pytest --cov=src --cov-report=term-missing
-```
+uv run pyright
+uv run pytest
+uv run zensical build
 
-Build and serve docs (hit **CTRL+c** in the VS Code terminal to quit serving):
-
-```shell
-uv run mkdocs build --strict
-uv run mkdocs serve
-```
-
-While editing project code and docs, repeat the commands above to run files, check them, and rebuild docs as needed.
-
-Save progress frequently (some tools may make changes; you may need to **re-run git `add` and `commit`** to ensure everything gets committed before pushing):
-
-```shell
+# save progress
 git add -A
 git commit -m "update"
 git push -u origin main
 ```
 
-Additional details and troubleshooting are available in the [Pro-Analytics-02 Documentation](https://denisecase.github.io/pro-analytics-02/).
-
----
-
-## Project Objectives
-
-### Project Task 1. Personalize Your Documentation Links
-
-Open [mkdocs.yaml](./mkdocs.yaml).
-This file configures the associated project documentation website (powered by MkDocs)
-Use CTRL+f to find each occurrence of the source GitHub account (e.g. `denisecase`).
-Change each occurrence to point to your GitHub account instead (spacing and capitalization MUST match the URL of your GitHub account **exactly**.)
-
-### Project Task 2. Personalize Your Python File
-
-1. Rename `app_yourname.py` to reflect your name or alias.
-
-- Find the file the file in the VS Code Explorer window (top icon on the left).
-- Right-click / Rename.
-- Follow conventions: name Python files in lower_snake_case, words joined with underscores, and using `.py` extension.
-
-2. Edit this README.md file to change the run command to call your file instead.
-   Use CTRL+f to search for `app_yourname.py` and replace all occurrences exactly.
-3. Preview this README.md to make sure it still appears correctly.
-   - Find README.md in the VS Code Explorer window (top icon on the left)
-   - Right-click / Preview
-   - Fix any issues.
-4. Run the updated command to execute **your** Python script.
-
-### Project Task 3. Implement Your Python File
-
-1. Read the example code carefully **before** starting.
-2. Open your file. Search for "TODO" items. VS Code has icons down the left. Use either TODO Tree (tree, at the bottom) or Search (second from top).
-3. Complete each TODO carefully, one at a time.
-4. After implementing a TODO, paste your run command in the terminal and hit Enter to re-run it.
-5. When it runs without errors, delete the associated TODO command.
-6. Keep working through each TODO.
-7. When you finish, there should be **zero TODO occurrences** in your project.
-
-**Save often**: After making any useful progress, follow the steps to git add-commit-push.
-
----
+</details>
 
 ## Notes
 
-- You do not need to add to or modify `tests/`. They are provided for example only.
-- You do not need to view or modify any of the supporting **config files**.
-- Many of the repo files are silent helpers. Explore as you like, but nothing is required.
-- You do NOT need to understand everything. Understanding builds naturally over time.
 - Use the **UP ARROW** and **DOWN ARROW** in the terminal to scroll through past commands.
-- Use `CTRL+f` to find (and replace) with in a file.
+- Use `CTRL+f` to find (and replace) text within a file.
 
-## Troubleshooting >>> or ...
 
-If you see something like this in your terminal: `>>>` or `...`
-You accidentally started Python interactive mode.
-It happens.
-Press `Ctrl+c` (both keys together) or `Ctrl+Z` then `Enter` on Windows.
+## Example Output
 
-## Resources
+```shell
+| INFO | P01 | ========================
+| INFO | P01 | START main()
+| INFO | P01 | ========================
+| INFO | P01 | Generated formatted multi-line SUMMARY string.
+| INFO | P01 | Returning the str to the calling function.
+| INFO | P01 |
+    Course Information:
+        Course name: Data Analytics Fundamentals
+        Course number: 608
+        Course hrs/wk: 20.00
+        Assumes prior experience: False
+        Uses Professional Python: True
+        Helpful traits: ['patience', 'curiosity', 'humor', 'tenacity']
 
-- [Pro-Analytics-02](<[./docs/pro-tips.md](https://denisecase.github.io/pro-analytics-02/)>) - guide to professional Python
-- [ANNOTATIONS.md](./ANNOTATIONS.md) - REQ/WHY/OBS annotations used
-- [INSTRUCTORS.md](./docs/root/INSTRUCTORS.md) - guidance and notes for instructors and maintainers
-- [POLICIES.md](./docs/root/POLICIES.md) - project rules and expectations that apply to all contributors
-- [SKILLS.md](./docs/root/SKILLS.md) - skills, concepts, and professional practices (there are many)
-- [SE_MANIFEST.toml](./SE_MANIFEST.toml) - project intent, scope, and role
+| INFO | P01 | Generated formatted multi-line SUMMARY string.
+| INFO | P01 | Returning the str to the calling function.
+| INFO | P01 |
+    Descriptive Statistics for Snowfall (inches):
+        Total snowfall: 22.50 inches
+        Count of measurements: 5
+        Minimum snowfall: 2.50 inches
+        Maximum snowfall: 6.50 inches
+        Average snowfall: 4.50 inches
+        Standard deviation: 1.58 inches
 
-## Citation
-
-[CITATION.cff](./CITATION.cff) - TODO: update author and repository fields to reflect your creative work
-
-<!--
-WHY: Support correct citation and attribution.
--->
-
-## License
-
-[MIT](./LICENSE)
-
-<!--
-WHY: Provide terms of reuse and limits of liability.
--->
+| INFO | P01 | ========================
+| INFO | P01 | Executed successfully!
+| INFO | P01 | ========================
+```

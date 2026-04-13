@@ -1,7 +1,7 @@
-"""app_yourname.py - Project script.
+"""src/datafun/app_case.py - Project script (example).
 
-Author: Your Name or Alias
-Date: 2026-01
+Author: Denise Case
+Date: 2026-04
 
   Practice key Python skills related to:
     - imports
@@ -14,19 +14,13 @@ Date: 2026-01
     - main function
     - conditional execution guard
 
+Terminal command to run this file from the root project folder
+
+    uv run python -m datafun.app_case
+
 OBS:
-  This is your file to practice and customize.
-  Find the TODO comments, and as you complete each task, remove the TODO note.
-
-TODO: Change the Author line of the docstring above to your name or alias.
-
-TODO: RENAME this file from app_yourname.py to something
-      that includes your name or alias, e.g., app_stellar_analytics.py.
-
-TODO: Update the opening line of the docstring above to match the new file name.
-
-TODO: Update the associated `uv run python` command in the README.md file.
-
+  Don't edit this file - it should remain a working example.
+  Copy it, rename it, and modify your copy.
 """
 
 
@@ -42,7 +36,6 @@ from datafun_toolkit.logger import get_logger, log_header
 
 LOG: logging.Logger = get_logger("P01", level="INFO")
 
-
 # === DECLARE GLOBAL CONSTANTS ===
 
 # All these global variables are CONSTANT, they do NOT change when the program runs.
@@ -50,28 +43,18 @@ LOG: logging.Logger = get_logger("P01", level="INFO")
 # The following illustrates variables that hold these common types:
 #    str, int, float, bool, list of strings.
 # `Final` is added to indicate these variables should not be reassigned.
-# Examples:
 
-MY_ANALYTICS_COMPANY: Final[str] = "DataFun Analytics"
-MY_EMPLOYEE_COUNT: Final[int] = 150
-
-# See the other file for examples.
-# TODO: Declare and initialize a string (str) variable of your choice below:
-
-
-# TODO: Declare and initialize an integer (int) variable of your choice below:
-
-
-# TODO: Declare and initialize a float (float) variable of your choice below:
-
-
-# TODO: Declare and initialize a boolean (bool) variable of your choice (True or False) below:
-
-
-# TODO: Declare and initialize a list of strings (list[str]) variable of your choice below:
-# REQ: Strings must be in quotes and items are separated by commas,
-# REQ: The list is wrapped in square brackets. (See the other file for examples.)
-
+COURSE_NAME: Final[str] = "Data Analytics Fundamentals"
+COURSE_NUMBER: Final[int] = 608
+COURSE_HOURS_PER_WEEK: Final[float] = 20.0
+ASSUMES_PRIOR_EXPERIENCE: Final[bool] = False
+USES_PROFESSIONAL_PYTHON: Final[bool] = True
+HELPFUL_TRAITS: Final[list[str]] = [
+    "patience",
+    "curiosity",
+    "humor",
+    "tenacity",
+]
 
 # === DECLARE A FUNCTION TO FORMAT THE INFORMATION ===
 
@@ -83,20 +66,14 @@ def get_summary() -> str:
 
     Returns: - a formatted multi-line string (starts with f and wrapped in triple quotes).
     """
-    # TODO: Create and return a multi-line f-string (triple-quoted) that includes
-    # all of the global variables you declared above, each on its own line,
-    # labeled clearly with descriptive text.
-    # See the other file for an example. Remember to start the string with an f!
     summary: str = f"""
-    Custom Information:
-        Company name: {MY_ANALYTICS_COMPANY}
-        Employee count: {MY_EMPLOYEE_COUNT}
-        TODO: Add your other global variables below:
-
-
-
-
-
+    Course Information:
+        Course name: {COURSE_NAME}
+        Course number: {COURSE_NUMBER}
+        Course hrs/wk: {COURSE_HOURS_PER_WEEK:.2f}
+        Assumes prior experience: {ASSUMES_PRIOR_EXPERIENCE}
+        Uses Professional Python: {USES_PROFESSIONAL_PYTHON}
+        Helpful traits: {HELPFUL_TRAITS}
     """
 
     LOG.info("Generated formatted multi-line SUMMARY string.")
@@ -115,37 +92,27 @@ def get_statistics() -> str:
     Returns: - a formatted multi-line string.
     """
     # Initialize sample data - snowfall measurements in inches.
-    # REQ: Vary ONE of the sample data values.
-    # See how the statistics change when you do.
-    # TODO: Change one of the values in the list below.
     snowfall_inches: list[float] = [2.5, 3.5, 4.5, 5.5, 6.5]
 
-    # Calculate descriptive statistics below - see other file for examples.
-
-    # Example: Calculate total snowfall.
+    # Calculate descriptive statistics.
     total: float = sum(snowfall_inches)
-
-    # Example : Calculate count of measurements.
     count: int = len(snowfall_inches)
 
-    # TODO: Calculate minimum and maximum snowfall (see other file for examples).
+    minimum: float = min(snowfall_inches) if count > 0 else 0.0
+    maximum: float = max(snowfall_inches) if count > 0 else 0.0
 
-    # Use the statistics module to calculate average.
     average: float = statistics.mean(snowfall_inches) if count > 0 else 0.0
-
-    # TODO: Use the statistics module to calculate standard deviation below:
+    std_dev: float = statistics.stdev(snowfall_inches) if count > 1 else 0.0
 
     # Build a formatted multi-line string using f and triple quotes.
     summary: str = f"""
     Descriptive Statistics for Snowfall (inches):
         Total snowfall: {total:.2f} inches
-        TODO: Add your count of measurements below:
-
-        TODO: Add your minimum and maximum snowfall below:
-
+        Count of measurements: {count}
+        Minimum snowfall: {minimum:.2f} inches
+        Maximum snowfall: {maximum:.2f} inches
         Average snowfall: {average:.2f} inches
-        TODO: Add your standard deviation below:
-
+        Standard deviation: {std_dev:.2f} inches
     """
 
     LOG.info("Generated formatted multi-line SUMMARY string.")
@@ -159,17 +126,18 @@ def get_statistics() -> str:
 def main() -> None:
     """Entry point when running this file as a Python script.
 
-    Arguments: None.
+    log_header() logs a standard run header.
+    log_path() logs repo-relative paths (privacy-safe).
 
+    Arguments: None.
     Returns: None.
     """
     # Log a header for the application.
-    LOG.info("=================")
-    log_header(LOG, "Foundations of Professional Python")
-    LOG.info("=================")
+    log_header(LOG, "P01")
 
-    # Log start of main processing.
-    LOG.info("START main()..................")
+    LOG.info("========================")
+    LOG.info("START main()")
+    LOG.info("========================")
 
     # Call functions to get formatted strings and log them.
     summary: str = get_summary()
@@ -178,14 +146,15 @@ def main() -> None:
     stats: str = get_statistics()
     LOG.info(stats)
 
-    # Log end of main processing.
-    LOG.info("END main()..................")
+    LOG.info("========================")
+    LOG.info("Executed successfully!")
+    LOG.info("========================")
 
 
 # === CONDITIONAL EXECUTION GUARD ===
 
 # WHY: If running this file as a script, then call main() function.
-# OBS: This is just standard Python boilerplate.
+# This is standard Python "boilerplate".
 
 if __name__ == "__main__":
     main()

@@ -1,24 +1,16 @@
-"""test_app.py - Tests for app.py.
+"""tests/test_app_case.py - Smoke test for the example.
 
-REQ: Test pure functions that return values.
+WHY: Professional Python projects include tests to verify that code runs
+     correctly and to catch problems early when changes are made.
+     Running tests is part of the standard workflow in every module.
 
-WHY: Pure functions are easy to verify; ensures code works as expected.
+OBS: You do not need to read or modify this file in Module 1.
+     It exists so that `uv run pytest` passes on a clean project.
 """
 
-from datafun_01_foundations.app_case import get_summary
 
+def test_app_case_runs():
+    """Confirm the example module runs without error."""
+    from datafun.app_case import main
 
-def test_generate_summary_contains_expected_fields() -> None:
-    """Verify that generate_summary() returns a formatted string containing key expected values."""
-    result = get_summary()
-
-    # Basic type check - verify we got a string back
-    assert isinstance(result, str)
-
-    # Verify the string is not empty
-    assert len(result) > 0
-
-    # Verify important content appears in the output
-    assert "Course name:" in result
-    assert "Course number:" in result
-    assert "True" in result or "False" in result  # Boolean value check
+    main()

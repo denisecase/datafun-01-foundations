@@ -1,6 +1,10 @@
 // .vscode/settings.json
 {
   "editor.formatOnSave": false,
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportMissingTypeStubs": "none"
+  },
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff"
   },
@@ -30,6 +34,5 @@
       ".github/workflows/*.yml",
       ".github/workflows/*.yaml"
     ]
-  },
-  "python-envs.pythonProjects": []
+  }
 }

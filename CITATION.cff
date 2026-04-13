@@ -12,8 +12,8 @@ cff-version: "1.2.0"
 type: software
 
 title: "Data Analytics Fundamentals Project 01: Getting Started with Professional Python"
-version: "0.9.0"
-date-released: "2026-01-11"
+version: "1.0.0"
+date-released: "2026-04-13"
 
 authors:
   - family-names: Case
@@ -34,7 +34,6 @@ abstract: >
 keywords:
   # identity
   - data analytics
-  - python
   - analytics-foundations
   - introductory-programming
   - project-based-learning
@@ -65,6 +64,9 @@ keywords:
   - open-source
   - uv
   - ruff
-  - mkdocs
+  - pre-commit
+  - pyright
+  - hatchling
+  - zensical
 
 message: "If using this work, please cite it as described in this file."
