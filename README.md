@@ -29,19 +29,8 @@ Then think about a good name to hold that value in code.
 4. A **string of characters (text)** (e.g. `city`, `company_name`, `analytic_specialty`)
 5. A **list of strings** (e.g., `skills`, `interests`, `favorite_teams`)
 
-Following the example ([`app_case.py`](./src/datafun_01_foundations/app_case.py)),
-decide on a name for each type of variable.
-
 You will run the example module, read the code,
 and make small modifications to understand how to choose good variable names in Python programs.
-
-In this project, you will:
-
-- choose variable names according to Python conventions.
-- signal the **type** of value each variable holds by using `type hints`.
-- **initialize** each variable to a value.
-- use Python **f-strings** (formatted strings) to display information.
-
 
 ## Working Files
 
