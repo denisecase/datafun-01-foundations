@@ -1,11 +1,10 @@
-# Project Instructions
+# Project Instructions (Module 1: Variables and Professional Python)
 
 ## WEDNESDAY: Complete Workflow Phases 1-3
 
 Follow the instructions in
-[⭐ **Workflow: Apply Example**](https://denisecase.github.io/pro-analytics-02/workflow-b-apply-example-project/).
-
-Complete:
+[⭐ **Workflow: Apply Example**](https://denisecase.github.io/pro-analytics-02/workflow-b-apply-example-project/)
+to complete:
 
 1. Phase 1. **Start & Run** - copy the project and confirm it runs
 2. Phase 2. **Change Authorship** - update the project to your name and GitHub account
@@ -13,97 +12,92 @@ Complete:
 
 ## FRIDAY/SUNDAY: Complete Workflow Phases 4-5
 
-Complete:
+Again, follow the instructions above to complete:
 
-1. Phase 4. **Make a Technical Modification**
+1. Phase 4. **Make a Technical Modification** - make a change and verify it still runs
 2. Phase 5. **Apply the Skills to a New Problem**
 
-## Topic
+## Phase 4 Suggestions
 
-**Variables** - naming, typing, and displaying data in Python.
+Make a small technical change that does not break the script.
+Choose any one of these (or a different modification as you like):
 
-In this project, you will choose meaningful variable names,
-assign values of different types, and display the results using formatted strings.
+- Change the value of one constant to reflect something true about you
+  (e.g., your field, your city, your years of experience)
+- Add a new constant of a type not yet in the example
+  (e.g., a `dict[str, int]` mapping skill names to years of experience)
+- Change the formatting in `get_summary()` to display values differently
+  (e.g., display the list items one per line instead of inline)
+- Add a new labeled line to the summary output for one of your constants
 
-## Learning Objectives
+Confirm the script still runs successfully after your change.
 
-After completing this project, you should be able to:
+## Phase 5 Suggestions
 
-- Explain what a variable is and why naming matters.
-- Declare variables for common Python types: `str`, `int`, `float`, `bool`, and `list[str]`.
-- Add type hints to variable declarations.
-- Use f-strings to display variable values in formatted output.
-- Run and validate a professional Python project using `uv`.
+### Phase 5 Suggestion 1. Same Structure, Your Domain (Directed)
 
-## Example Code
+Replace all five constants in your copy with five of your own choosing,
+keeping one of each type: `str`, `int`, `float`, `bool`, `list[str]`.
 
-The example file is located in `src/datafun/app_case.py`.
+Steps:
 
-It demonstrates:
+- Choose a topic or domain you know well
+  (e.g., your profession, a sport, a hobby, a research area)
+- Declare one variable of each type related to your topic
+- Use `ALL_CAPS_WITH_UNDERSCORES` for constant names
+- Add `Final` to each type hint
+- Update `get_summary()` to display your variables with clear labels
+- Run the script and confirm output appears in the log
 
-- declaring constants using `Final` type hints
-- using five common Python types: `str`, `int`, `float`, `bool`, `list[str]`
-- formatting output with f-strings
-- logging the pipeline process
-- organizing code with functions and a `main()` entry point
+Then:
 
-Make sure you have read and successfully run the example before creating your own version.
+- Describe the topic you chose and why
+- Explain what each variable represents in that context
+- Identify which type hint was most natural for your data and why
 
-## Your Phase 4: Technical Modification Task
+### Phase 5 Suggestion 2. Add Descriptive Statistics (Original)
 
-Since this is the first module, we'll help you plan the technical modification task.
+Add a `get_statistics()` function for a numeric list related to your topic.
 
-Using the example as a guide:
+Steps:
 
-1. Copy `src/datafun/app_case.py`.
-2. Rename the copy to `src/datafun/app_yourname.py` (all lowercase, no spaces).
-3. In your new file, update the module docstring with your name and the current date.
-4. Change the values assigned to the existing constants to reflect your own information.
-   Keep the same variable names and types.
+- Choose a list of at least five numeric measurements related to your domain
+  (e.g., scores, prices, durations, distances, temperatures)
+- Declare the list as a `list[float]` constant
+- Compute: total, count, minimum, maximum, mean, and standard deviation
+- Use the `statistics` module for mean and stdev
+- Display the results using an f-string with two decimal places
+- Run the script and confirm the statistics appear in the log
 
-This phase is mainly about confirming that:
+Then:
 
-- your copied file runs without errors
-- your renamed module runs correctly
-- you understand how the file name, module name, and run command connect
+- Describe what the numbers represent
+- Identify any values that seem unusual and explain why
+- Explain what the standard deviation tells you about your data
 
-## Phase 5: Apply the Skills
+## Key Skill Focus
 
-In your new file, replace the example constants with five variables of your own choosing.
+As you work, focus on:
 
-Choose one of each type:
+- how to choose clear, descriptive variable names
+- how type hints communicate intent without changing behavior
+- how `Final` signals that a value should not be reassigned
+- how f-strings embed variable values into readable output
+- how the `statistics` module provides common descriptive measures
 
-- A `bool` - a true/false fact about a topic you know well
-  (e.g., `is_remote_work`, `has_certification`, `requires_travel`)
-- An `int` - a whole number related to your topic
-  (e.g., `team_size`, `years_in_field`, `project_count`)
-- A `float` - a decimal number related to your topic
-  (e.g., `budget_multiplier`, `satisfaction_score`, `avg_hours_per_day`)
-- A `str` - a short text value
-  (e.g., `department_name`, `primary_language`, `home_city`)
-- A `list[str]` - a list of related text values
-  (e.g., `tools_used`, `certifications`, `regions_served`)
+Your goal is to declare meaningful variables and display them clearly.
 
-Then update:
+## Professional Communication
 
-- the `get_summary()` function to display your variables
-- the docstring in `main()` to describe what your script does
-- the documentation in `docs/` to explain your variable choices
+Make sure the title and narrative reflect your work.
+Verify key files:
 
-Your logic should remain simple.
-You do not need functions beyond `get_summary()` and `main()` in this module.
+- README.md
+- docs/ (source and hosted on GitHub Pages)
+- src/ (your renamed script)
 
-## What to Look For
+Ensure your project clearly demonstrates:
 
-- Does your variable name clearly describe the value it holds?
-- Is the type hint accurate for the value you assigned?
-- Does your f-string output read naturally - like a sentence, not a dump of raw data?
-- What happens if you assign the wrong type to a variable? Try it and observe the Pyright warning.
-- How does using `Final` signal intent to other developers?
-
-## Optional (Advanced)
-
-If you would like to add a `get_statistics()` function similar to the example,
-choose a `list[float]` of measurements related to your topic and compute:
-`sum`, `min`, `max`, `mean`, and `stdev` using the `statistics` module.
-Display the results using an f-string with two decimal places.
+- correct variable declarations with type hints
+- a working `get_summary()` function with your variables
+- successful script execution with output in the log

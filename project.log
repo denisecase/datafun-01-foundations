@@ -1,0 +1,36 @@
+2026-04-13 08:31:41 | INFO | P01 | === RUN START ===
+2026-04-13 08:31:41 | INFO | P01 | project=P01
+2026-04-13 08:31:41 | INFO | P01 | repo_dir=datafun-01-foundations
+2026-04-13 08:31:41 | INFO | P01 | python=3.14.0
+2026-04-13 08:31:41 | INFO | P01 | os=Windows 11
+2026-04-13 08:31:41 | INFO | P01 | shell=powershell
+2026-04-13 08:31:41 | INFO | P01 | cwd=.
+2026-04-13 08:31:41 | INFO | P01 | github_actions=False
+2026-04-13 08:31:41 | INFO | P01 | ========================
+2026-04-13 08:31:41 | INFO | P01 | START main()
+2026-04-13 08:31:41 | INFO | P01 | ========================
+2026-04-13 08:31:41 | INFO | P01 | Generated formatted multi-line SUMMARY string.
+2026-04-13 08:31:41 | INFO | P01 | Returning the str to the calling function.
+2026-04-13 08:31:41 | INFO | P01 | 
+    Course Information:
+        Course name: Data Analytics Fundamentals
+        Course number: 608
+        Course hrs/wk: 20.00
+        Assumes prior experience: False
+        Uses Professional Python: True
+        Helpful traits: ['patience', 'curiosity', 'humor', 'tenacity']
+    
+2026-04-13 08:31:41 | INFO | P01 | Generated formatted multi-line SUMMARY string.
+2026-04-13 08:31:41 | INFO | P01 | Returning the str to the calling function.
+2026-04-13 08:31:41 | INFO | P01 | 
+    Descriptive Statistics for Snowfall (inches):
+        Total snowfall: 22.50 inches
+        Count of measurements: 5
+        Minimum snowfall: 2.50 inches
+        Maximum snowfall: 6.50 inches
+        Average snowfall: 4.50 inches
+        Standard deviation: 1.58 inches
+    
+2026-04-13 08:31:41 | INFO | P01 | ========================
+2026-04-13 08:31:41 | INFO | P01 | Executed successfully!
+2026-04-13 08:31:41 | INFO | P01 | ========================
