@@ -49,8 +49,6 @@ reportMissingImports = "warning"
 reportPrivateUsage = "none"
 typeCheckingMode = "basic" # strict | basic | off
 useLibraryCodeForTypes = false
-venv = ".venv"
-venvPath = "."
 
 # === PYTEST (VERIFY LOGIC) ===
 

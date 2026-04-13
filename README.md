@@ -115,7 +115,7 @@ uv run python -m datafun.app_case
 # do chores
 uv run ruff format .
 uv run ruff check . --fix
-uv run pyright
+uv run python -m pyright
 uv run pytest
 uv run zensical build
 
