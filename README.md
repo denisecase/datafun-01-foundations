@@ -113,11 +113,11 @@ uvx pre-commit run --all-files
 uv run python -m datafun.app_case
 
 # do chores
-uv run ruff format .
-uv run ruff check . --fix
+uv run python -m ruff format .
+uv run python -m ruff check . --fix
 uv run python -m pyright
-uv run pytest
-uv run zensical build
+uv run python -m pytest
+uv run python -m zensical build
 
 # save progress
 git add -A
@@ -131,7 +131,16 @@ git push -u origin main
 
 - Use the **UP ARROW** and **DOWN ARROW** in the terminal to scroll through past commands.
 - Use `CTRL+f` to find (and replace) text within a file.
+- You do not need to add to or modify `tests/`. They are provided for example only.
+- Many files are silent helpers. Explore as you like, but nothing is required.
+- You do NOT not to understand everything; understanding builds naturally over time.
 
+## Troubleshooting >>> or ...
+
+If you see something like this in your terminal: `>>>` or `...`
+You accidentally started Python interactive mode.
+It happens.
+Press `Ctrl+c` (both keys together) or `Ctrl+Z` then `Enter` on Windows.
 
 ## Example Output
 

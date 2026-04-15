@@ -67,8 +67,8 @@ MAX_RETRIES: Final[int] = 3
 ## Collections
 
 A `list` holds an ordered sequence of values of the same type.
-The type inside the square brackets is called a **type parameter** —
-it describes what kind of values the list contains.
+The type inside the square brackets is called a **type parameter**.
+It describes what kind of values the list contains.
 
 ```python
 topics: list[str] = ["variables", "functions", "data"]
@@ -76,7 +76,7 @@ scores: list[float] = [92.5, 88.0, 95.5]
 ```
 
 A `dict` maps keys to values.
-Two type parameters are used — one for the key type, one for the value type.
+Two type parameters are used: one for the key type, one for the value type.
 
 ```python
 grades: dict[str, float] = {"Alice": 92.5, "Bob": 88.0}

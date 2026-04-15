@@ -35,8 +35,8 @@
 #      If format ran first, lint fixes could undo the formatting.
 #
 # MANUAL ORDER (command line) is different: format first, then check.
-#   uv run ruff format .
-#   uv run ruff check . --fix
+#   uv run python -m ruff format .
+#   uv run python -m ruff check . --fix
 # WHY: When running manually, each command is a conscious step.
 #      Format cleans style first so lint sees tidy code.
 #      You are in control and can re-run either command as needed.
