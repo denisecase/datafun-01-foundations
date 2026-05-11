@@ -29,7 +29,8 @@
 #
 # OPTIONAL MAINTAINER CHECKS (if installed in this repo):
 #   uv run python -m pyright
-#   uv run validate-pyproject pyproject.toml
+#   uvx validate-pyproject[all] pyproject.toml
+#   npx markdownlint-cli2 --fix
 
 [lint]
 # Baseline + stricter categories:

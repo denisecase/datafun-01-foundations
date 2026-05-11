@@ -11,12 +11,12 @@ so it can be reused and inspected throughout a program.
 
 ## Common Variable Types
 
-| Type | Holds | Example value |
-|------|-------|---------------|
-| `str` | text | `"Kansas City"` |
-| `int` | a whole number | `42` |
-| `float` | a decimal number | `3.14` |
-| `bool` | true or false | `True` |
+| Type        | Holds                                | Example value               |
+| ----------- | ------------------------------------ | --------------------------- |
+| `str`       | text                                 | `"Kansas City"`             |
+| `int`       | a whole number                       | `42`                        |
+| `float`     | a decimal number                     | `3.14`                      |
+| `bool`      | true or false                        | `True`                      |
 | `list[str]` | an ordered collection of text values | `["patience", "curiosity"]` |
 
 ## Type Hints

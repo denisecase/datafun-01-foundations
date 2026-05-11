@@ -91,7 +91,7 @@ A folder containing Python modules.
 Packages allow related modules to be grouped and imported together.
 The dot in `datafun.app_case` separates the package name from the module name.
 
-```
+```text
 src/
   datafun/
     __init__.py

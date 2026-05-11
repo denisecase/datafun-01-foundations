@@ -1,6 +1,7 @@
 # datafun-01-foundations
 
-[![Python 3.14+](https://img.shields.io/badge/python-3.14%2B-blue?logo=python)](#)
+[![Workflow Guide](https://img.shields.io/badge/Pro--Guide-pro--analytics--02-green)](https://denisecase.github.io/pro-analytics-02/workflow-b-apply-example-project/)
+[![Python 3.14](https://img.shields.io/badge/python-3.14%2B-blue?logo=python)](./pyproject.toml)
 [![MIT](https://img.shields.io/badge/license-see%20LICENSE-yellow.svg)](./LICENSE)
 
 > Professional Python project: creating variables and running code.
@@ -8,7 +9,7 @@
 Data analytics requires a variety of skills.
 This course builds capabilities through working projects.
 
-In the age of generative AI, durable skills are grounded in real work:
+In the age of generative AI, **durable skills** are grounded in real work:
 setting up a professional environment,
 reading and running code,
 understanding the logic,
@@ -43,7 +44,9 @@ You'll work with just these areas:
 
 ## Instructions
 
-Follow the [step-by-step workflow guide](https://denisecase.github.io/pro-analytics-02/workflow-b-apply-example-project/) to complete:
+Follow the
+[step-by-step workflow guide](https://denisecase.github.io/pro-analytics-02/workflow-b-apply-example-project/)
+to complete:
 
 1. Phase 1. **Start & Run**
 2. Phase 2. **Change Authorship**
@@ -97,6 +100,9 @@ code .
 ### In a VS Code terminal
 
 ```shell
+# reset uv cache only after suspected cache corruption or strange dependency errors
+# uv cache clean
+
 uv self update
 uv python pin 3.14
 uv sync --extra dev --extra docs --upgrade
@@ -105,7 +111,7 @@ uvx pre-commit install
 
 git add -A
 uvx pre-commit run --all-files
-# repeat if changes were made
+# repeat if changes were made by pre-commit tasks
 git add -A
 uvx pre-commit run --all-files
 
@@ -113,15 +119,20 @@ uvx pre-commit run --all-files
 uv run python -m datafun.app_case
 
 # do chores
-uv run python -m ruff format .
-uv run python -m ruff check . --fix
+uv run ruff format .
+uv run ruff check . --fix
 uv run python -m pyright
 uv run python -m pytest
 uv run python -m zensical build
 
 # save progress
 git add -A
-git commit -m "update"
+git commit -m "your message here"
+
+# repeat if changes were made (try the UP ARROW)
+git add -A
+git commit -m "your message here"
+
 git push -u origin main
 ```
 
@@ -135,7 +146,7 @@ git push -u origin main
 - Many files are silent helpers. Explore as you like, but nothing is required.
 - You do NOT not to understand everything; understanding builds naturally over time.
 
-## Troubleshooting >>> or ...
+## Troubleshooting >>>
 
 If you see something like this in your terminal: `>>>` or `...`
 You accidentally started Python interactive mode.

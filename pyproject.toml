@@ -1,8 +1,14 @@
 # ============================================================
 # pyproject.toml (Python project configuration)
 # ============================================================
+# Updated: 2026-04-15
 # REQ.PYTHON: Python projects MUST include pyproject.toml as the single source of truth.
 # WHY: Centralizes project configuration.
+# CUSTOM: Update identity and build tool src folders.
+
+# ============================================================
+# SECTION 1: PROJECT IDENTITY (name, version, CUSTOM dependencies)
+# ============================================================
 
 [project]
 name = "datafun-01-foundations" # Package distribution name (lowercase and dashes).
@@ -12,7 +18,7 @@ version = "1.0.0"
 
 dependencies = [
     # REQ.DEPS: External packages used by the project code.
-    "datafun-toolkit",
+    "datafun-toolkit", # WHY: Custom utility library for privacy-aware logging
 ]
 
 [project.optional-dependencies]
@@ -24,44 +30,58 @@ dev = [
     "pytest",
     "pytest-cov",
     "ruff",
-    "validate-pyproject",
 ]
 
 docs = [
     # REQ.DOCS.DEPS: External packages used to generate project documentation.
-    "mkdocstrings[python]",
-    "zensical",
+    "mkdocstrings[python]", # WHY: Auto-generate API docs from docstrings.
+    "zensical", # WHY: Generate and maintain project documentation.
 ]
+
+# ============================================================
+# SECTION 2: TOOL CONFIGURATION (Professional basics)
+# ============================================================
 
 # === PYRIGHT (TYPE CHECKING HELPS FIND COMMON ERRORS BEFORE THE CODE RUNS) ===
 
 [tool.pyright]
 # CUSTOM: Pyright configuration for static type checking.
-# This configuration is NOT enforced by CI or pre-commit.
-# It is provided for instructors and advanced users who
-# explicitly run pyright. It is optional.
 # WHY: Strict type checking helps catch bugs early.
-include = ["src"]
-extraPaths = ["src"]
-exclude = [ "**/node_modules", "**/.*", ".venv","**/__pycache__","dist","build"]
-pythonVersion = "3.14"
-reportMissingImports = "warning"
-reportPrivateUsage = "none"
+include = ["src"] # WHY: Include both source and test code for comprehensive type checking.
+extraPaths = ["src"] # WHY: Ensure imports are resolved relative to src/ for consistent behavior across environments.
+exclude = ["**/node_modules", "**/.*", ".venv", "**/__pycache__", "dist", "build"]
+pythonVersion = "3.13" # 3.14 stubs incomplete in current pyright
+reportMissingTypeStubs = "none" # WHY: Avoid warnings from third-party libraries without type stubs.
+reportMissingImports = "warning" # WHY: Warn about missing imports to catch potential issues, but allow flexibility in notebooks and dynamic code.
+reportPrivateUsage = "none" # WHY: Allow usage of private members (e.g., _version.py) without warnings, common in Python projects.
+reportUntypedClassDecorator = "none"  # @dataclass stubs incomplete in current pyright
+reportArgumentType = "none"           # len() resolves to collections.abc, pyright bug
+reportUnknownMemberType = "none"      # WHY: confluent_kafka + duckdb stub gaps
+reportUnknownVariableType = "none"    # WHY: confluent_kafka + duckdb stub gaps
+reportCallIssue = "none"              # WHY: @dataclass frozen in KafkaSettings
 typeCheckingMode = "basic" # strict | basic | off
-useLibraryCodeForTypes = false
+
+[[tool.pyright.executionEnvironments]]
+root = "tests"
+reportUnknownMemberType = "none"
+reportUnknownVariableType = "none"
+reportUnknownParameterType = "none"
+reportMissingParameterType = "none"
+reportUnknownArgumentType = "none"
+
 
 # === PYTEST (VERIFY LOGIC) ===
 
 [tool.pytest.ini_options]
-# WHY: Ensure tests are discoverable and coverage is visible.
-minversion = "7.0"
+# WHY: Consistent test discovery and coverage visibility.
+minversion = "9.0"
 testpaths = ["tests"]
 addopts = " --cov=src --cov-report=term-missing"
 
 # === RUFF (PYTHON FORMATTING AND LINTING) ===
 
 [tool.ruff]
-# WHY: Ruff provides fast linting and formatting with deterministic output.
+# WHY: Fast linting and formatting in one tool.
 exclude = [
     ".eggs",
     "*.egg-info",
@@ -72,7 +92,7 @@ exclude = [
     "dist",
     "site",
 ]
-line-length = 88 # WHY: PEP 8 standard line length, wrap when possible.
+line-length = 88 # WHY: PEP 8 standard, wrap when possible.
 preview = false # WHY: Stable features only; avoid preview features.
 target-version = "py313" # WHY: Match latest supported Python version.
 unsafe-fixes = false # WHY: Avoid potentially unsafe automatic fixes.
@@ -89,73 +109,49 @@ select = [
     "E",   # Basic syntax and structural correctness
     "F",   # Undefined names and unused imports
     "W",   # Warnings that catch easy issues early
-    "I",   # Deterministic import ordering
+    "I",   # Import ordering
     "UP",  # Modern Python constructs
-    "B",   # Common bug patterns
+    "B",   # Common bug-prone patterns
     "PTH", # Prefer pathlib patterns
 ]
 ignore = [
-  "E501", # Final line length handled by formatter
+  "E501", # Line length enforced by formatter, not linter.
 ]
 
 [tool.ruff.lint.isort]
 # WHY: Ordering imports helps keep code diffs (differences) readable.
-force-sort-within-sections = false # WHY: Avoid unnecessary churn by only sorting within sections.
+force-sort-within-sections = true
 
 # === PER-FILE IGNORES (DEPENDS ON DOCSTRING POLICY) ===
 
 [tool.ruff.lint.per-file-ignores]
-# WHY: Some files MUST NOT undergo linting or automated fixes.
-
-# POLICY: Docstring rules are NOT enabled (no "D" in [tool.ruff.lint].select).
+# WHY: Some files must not be auto-modified.
 "src/**/__init__.py" = ["F401"]     # Allow re-export patterns
 "src/**/_version.py" = ["ALL"]      # Auto-generated file (do not lint)
+"tests/**/*.py" = ["D", "B018", "B011", "S101"]
+"src/**/py.typed" = ["ALL"]
 "notebooks/**/*.ipynb" = ["F821"]   # Notebooks may have runtime-defined names
+
 
 # === CHOOSE PROJECT DOC STYLE ===
 
 [tool.ruff.lint.pydocstyle]
-# WHY: Choose one docstring convention project-wide to avoid mixed styles and churn.
-# REQ: Google style is the default policy for this repository.
-convention = "google" # ALT: "numpy" (choose one convention project-wide)
+# REQ: Google style is the project-wide docstring convention.
+convention = "google"   # ALT: "numpy" choose one, never mix.
 
-# === BUILD SYSTEM ===
+# ============================================================
+# SECTION 3: BUILD SYSTEM (boilerplate; CUSTOM src/ agreement)
+# ============================================================
 #
-# REQ.PROJECT:
-#   This project MUST define a build system so that Python modules
-#   can be discovered, imported, and published to PyPI reliably.
-#
-# WHY:
-#   Tools such as editors, test runners, CI, and PyPI need a consistent
-#   way to locate and package importable code.
-#
-# REQ.STRUCTURE:
-#   All importable Python code MUST live under src/.
-#
-# WHY:
-#   A src/ layout prevents accidental imports from the repository root and
-#   ensures consistent behavior across IDEs, tests, command-line runs,
-#   and published distributions.
+# REQ.PROJECT: A build system MUST be declared for package discovery and publishing.
+# REQ.STRUCTURE: All importable code MUST live under src/.
+# WHY src/ layout: Prevents accidental imports from the repo root;
+#     ensures consistent behavior across IDEs, tests, CI, and PyPI.
 
 [build-system]
-# REQ.BUILD: A build backend MUST be declared to enable package discovery and publishing.
 build-backend = "hatchling.build"
-requires = ["hatchling", "hatch-vcs"]
+requires = ["hatchling"]
 
 [tool.hatch.build.targets.wheel]
-# REQ.PACKAGES: Package discovery MUST be rooted at src/.
-packages = ["src/datafun"]
-
-[tool.hatch.version]
-# WHY: Version is derived from git tags at build time so the package version
-# always matches the release tag without manual updates to source files.
-# fallback-version is used when no git tags are present (e.g., fresh clone, CI without tags).
-# tag-pattern matches tags like v1.2.3 or 1.2.3 and extracts the numeric version.
-source = "vcs"
-fallback-version = "0.1.0"
-tag-pattern = "^(?:v)?(?P<version>\\d+\\.\\d+\\.\\d+)$"
-
-[tool.hatch.build.hooks.vcs]
-# WHY: Writes computed version into package at build time.
-# Can be read at runtime without importing hatch-vcs.
-version-file = "src/datafun/_version.py"
+# CUSTOM: Must match src/ folders.
+packages = ["src/datafun"]  # REQ.PACKAGES: Discovery rooted at src/.

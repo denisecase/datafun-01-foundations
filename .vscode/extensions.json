@@ -1,9 +1,11 @@
+// ============================================================
+// .vscode/extensions.json
+// ============================================================
+// Updated 2026-04-15
+// NOTE: Comments are not allowed in standard JSON files,
+// but Microsoft allows them in their .vscode config files.
 {
   "recommendations": [
-    // ============================================================
-    // === TODO Task Management ===
-    // ============================================================
-    "gruntfuggly.todo-tree", // TODO/FIXME comment tracking
     // ============================================================
     // === PYTHON DEVELOPMENT ===
     // ============================================================
@@ -20,6 +22,7 @@
     // ============================================================
     "yzhang.markdown-all-in-one", // Shortcuts, TOC, formatting for .md files
     "bierner.markdown-preview-github-styles", // GitHub-style markdown preview
+    "esbenp.prettier-vscode", // Used for Markdown formatting
     // "bierner.markdown-mermaid", // Diagram rendering in markdown (flowcharts, etc.)
     // ============================================================
     // === DATA FILES AND CONFIGURATION ===
@@ -31,19 +34,15 @@
     // === PROJECT INFRASTRUCTURE ===
     // ============================================================
     "editorconfig.editorconfig", // Respects .editorconfig settings (indentation, line endings)
-    "github.vscode-github-actions", // Syntax highlighting for .github/workflows/*.yml
+    "github.vscode-github-actions", // GitHub Actions workflow editing, validation, and run support
   ],
   "unwantedRecommendations": [
     // ============================================================
     // === NOT RECOMMENDED: CONFLICTS WITH CURRENT SETUP ===
     // ============================================================
-    "esbenp.prettier-vscode", // We use ruff for Python, built-in formatters for JSON/YAML
     "ms-pyright.pyright", // Use Pylance (Pyright engine) instead to avoid duplicate diagnostics
     "ms-python.black-formatter", // We use ruff format instead
     "ms-python.isort", // We use ruff for import sorting
-    "ms-vscode.live-server", // Not needed for Python/analytics projects
-    "ritwickdey.liveserver", // Duplicate of above
-    "ms-vscode-remote.remote-containers", // OPTIONAL: Not recommended - local dev preferred
     "eamodio.gitlens", // OPTIONAL: Powerful for work; noisy for individual projects
   ]
 }

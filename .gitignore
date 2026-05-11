@@ -1,6 +1,7 @@
 # ============================================================
 # .gitignore (Keep unnecessary files out of the repository)
 # ============================================================
+# Updated 2026-05-10
 
 # REQ.UNIVERSAL: All professional GitHub project repositories MUST include .gitignore.
 # WHY: Prevent committing generated artifacts, local state, secrets, and OS-specific files.
@@ -58,7 +59,6 @@ Thumbs.db
 
 # WHY: Never commit credentials or environment-specific configuration.
 .env
-.env.*
 *.env
 
 # === Documentation build output ===
