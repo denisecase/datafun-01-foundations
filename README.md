@@ -19,7 +19,8 @@ We learn by doing.
 
 ## This Project
 
-This project introduces some coding basics and **variables** for storing data when writing instructions.
+This project introduces some coding basics and **variables**
+for storing data when writing instructions.
 
 Think about different kinds of data - real or fictional.
 Then think about a good name to hold that value in code.
@@ -185,3 +186,5 @@ Press `Ctrl+c` (both keys together) or `Ctrl+Z` then `Enter` on Windows.
 | INFO | P01 | Executed successfully!
 | INFO | P01 | ========================
 ```
+
+![VS Code - Running Commands](./docs/images/vscode_running_commands.png)
