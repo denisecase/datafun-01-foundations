@@ -85,14 +85,11 @@ That is, a longer bill may indicate a larger body mass.
 
 ![Scatter plot showing the selected feature and target](docs/images/feature-target-scatter.png)
 
-## Working Files
-
-Work with just these areas:
+## Important Folders and Files
 
 - **data/** - the CSV data file
-- **src/datafun/app.py** - the Python logic
 - **docs/** - the project narrative and documentation
-- **pyproject.toml** - project metadata
+- **src/datafun/app.py** - the Python logic
 - **zensical.toml** - documentation site config
 
 ## Common Workflow
