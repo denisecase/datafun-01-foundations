@@ -1,36 +1,23 @@
 # Project-Specific Instructions
 
-## WEDNESDAY: Complete Workflow Phases 1-3
-
-Follow the instructions in
-[**Workflow: Apply Example Project**](https://denisecase.github.io/pro-analytics-02/workflow-b-apply-example-project/)
-to complete:
-
-1. Phase 1. **Start & Run**
-2. Phase 2. **Take Ownership**
-3. Phase 3. **Read & Understand**
-
-## FRIDAY/SUNDAY: Complete Workflow Phases 4-5
-
-Again, follow the instructions above to complete:
-
-1. Phase 4. **Make a Technical Modification**
-2. Phase 5. **Apply the Skills to a New Problem**
-
 ## Phase 4: First Technical Modification
 
-Make one small change to your new working project.
-Then, run the project again and verify your change works.
-For example, you might:
-
-- Change the feature identified as potentially useful for predicting the selected target.
-  Look at the datafile and columns to see which numeric columns might be related to the target.
-
-Make your change, then run the project again and inspect the output.
+Make one small change technical change.
+Run the project again and see what happens.
 If your change causes an error, read the message, correct the problem,
 and rerun the project.
-Follow this "debugging" process until it works again.
-You can always revert (CTRL z) to get back to the way it was.
+You can always revert (CTRL z) changes or return to the example code.
+Follow this debugging process
+until your initial technical modification runs successfully.
+
+Suggestions:
+
+- Change the feature identified as potentially useful for
+  predicting the selected target.
+  Look at the datafile and columns to see which numeric columns
+  might be related to the target.
+
+Look at the data file and column names to identify reasonable choices.
 
 ## Phase 5: Custom Project
 
@@ -38,7 +25,7 @@ Keep the penguins dataset and make the analysis yours
 by selecting a different numeric **target** and a different numeric **feature**
 while explaining your choices in **app.py**.
 
-A more independent version might use another appropriate tabular dataset.
+For more challenge, use another appropriate tabular dataset.
 
 ## Professional Communication
 
