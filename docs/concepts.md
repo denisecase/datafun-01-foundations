@@ -2,7 +2,8 @@
 
 > Key concepts introduced in this module.
 
-<!-- Only the first sentence/paragraph of h3 entries are used for the integrated quiz. -->
+<!-- Only the first sentence/paragraph of h3 entries
+are used for the integrated quiz. -->
 
 ## 1. Tabular Data
 
