@@ -1,0 +1,71 @@
+2026-08-25 08:28:00 | INFO | P01 | === RUN START ===
+2026-08-25 08:28:00 | INFO | P01 | project=P01
+2026-08-25 08:28:00 | INFO | P01 | repo_dir=datafun-01-foundations
+2026-08-25 08:28:00 | INFO | P01 | python=3.14.7
+2026-08-25 08:28:00 | INFO | P01 | os=Windows 11
+2026-08-25 08:28:00 | INFO | P01 | shell=powershell
+2026-08-25 08:28:00 | INFO | P01 | cwd=.
+2026-08-25 08:28:00 | INFO | P01 | github_actions=False
+2026-08-25 08:28:00 | INFO | P01 | ===================================
+2026-08-25 08:28:00 | INFO | P01 | START main()
+2026-08-25 08:28:00 | INFO | P01 | ===================================
+2026-08-25 08:28:00 | INFO | P01 | -------------------------------
+2026-08-25 08:28:00 | INFO | P01 | 01. LOAD the data.
+2026-08-25 08:28:00 | INFO | P01 | -------------------------------
+2026-08-25 08:28:00 | INFO | P01 | data file = data\penguins.csv
+2026-08-25 08:28:00 | INFO | P01 | Data loaded successfully.
+2026-08-25 08:28:00 | INFO | P01 | -------------------------------
+2026-08-25 08:28:00 | INFO | P01 | 02. INSPECT the data.
+2026-08-25 08:28:00 | INFO | P01 | -------------------------------
+2026-08-25 08:28:00 | INFO | P01 | START inspect
+2026-08-25 08:28:00 | INFO | P01 |    row_count:    344
+2026-08-25 08:28:00 | INFO | P01 |    column_count: 8
+2026-08-25 08:28:00 | INFO | P01 |    column_names: ['species', 'island', 'bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g', 'sex', 'year']
+2026-08-25 08:28:00 | INFO | P01 | END inspect. Returning inspection_string.
+2026-08-25 08:28:00 | INFO | P01 | 
+----------------
+Data Inspection:
+----------------
+    One row means: one penguin
+    Row count: 344
+    Column count: 8
+    Column names: ['species', 'island', 'bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g', 'sex', 'year']
+
+---------------
+First Few Rows:
+---------------
+  species     island  bill_length_mm  ...  body_mass_g     sex  year
+0  Adelie  Torgersen            39.1  ...       3750.0    male  2007
+1  Adelie  Torgersen            39.5  ...       3800.0  female  2007
+2  Adelie  Torgersen            40.3  ...       3250.0  female  2007
+3  Adelie  Torgersen             NaN  ...          NaN     NaN  2007
+4  Adelie  Torgersen            36.7  ...       3450.0  female  2007
+
+[5 rows x 8 columns]
+
+2026-08-25 08:28:00 | INFO | P01 | -------------------------------
+2026-08-25 08:28:00 | INFO | P01 | 03. DESCRIBE the data.
+2026-08-25 08:28:00 | INFO | P01 | -------------------------------
+2026-08-25 08:28:00 | INFO | P01 | START get_analyst_description
+2026-08-25 08:28:00 | INFO | P01 | END get_analyst_description. Returning summary_string.
+2026-08-25 08:28:00 | INFO | P01 | 
+--------------------------------------------------------
+Analyst Data Description (and Possible Prediction Plan):
+--------------------------------------------------------
+    A row represents:           one penguin
+    A target we might predict:  body_mass_g
+    A feature that might help:  bill_length_mm
+    Why the feature might help: 
+A bigger penguin probably has both a longer bill and more mass,
+so bill length might help predict body mass.
+That is, a longer bill may indicate a larger body mass.
+
+
+2026-08-25 08:28:00 | INFO | P01 | -------------------------------
+2026-08-25 08:28:00 | INFO | P01 | 04. VISUALIZE the selected target and feature.
+2026-08-25 08:28:00 | INFO | P01 | -------------------------------
+2026-08-25 08:28:00 | INFO | P01 | Chart saved successfully at docs\images\feature-target-scatter.png.
+2026-08-25 08:28:00 | INFO | P01 | IMPORTANT: Close chart window to continue by clicking its X or close button.
+2026-08-25 08:28:00 | INFO | P01 | ===================================
+2026-08-25 08:28:00 | INFO | P01 | END main() - Executed successfully!
+2026-08-25 08:28:00 | INFO | P01 | ===================================
